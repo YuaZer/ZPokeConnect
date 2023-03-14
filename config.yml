@@ -1,0 +1,9 @@
+Message:
+  reload: "&b[Z菌网页API] &a重载成功"
+#服务器设置
+ServerSetting:
+  #端口
+  port: 25080
+GlobalSetting:
+  #键名称设置
+  papi: "变量是"

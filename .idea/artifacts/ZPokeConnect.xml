@@ -1,0 +1,10 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="ZPokeConnect">
+    <output-path>$PROJECT_DIR$/out/artifacts/ZPokeConnect</output-path>
+    <root id="archive" name="ZPokeConnect.jar">
+      <element id="module-output" name="ZPokeConnect" />
+      <element id="file-copy" path="$PROJECT_DIR$/config.yml" />
+      <element id="file-copy" path="$PROJECT_DIR$/plugin.yml" />
+    </root>
+  </artifact>
+</component>

@@ -1,0 +1,14 @@
+<component name="libraryTable">
+  <library name="libraries">
+    <CLASSES>
+      <root url="file://$PROJECT_DIR$/../../开发API/1.12.2/libraries" />
+      <root url="jar://$PROJECT_DIR$/../../开发API/[P][变量]PlaceholderAPI-2.11.1.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="file://$PROJECT_DIR$/../../开发API/1.12.2/libraries" />
+    </SOURCES>
+    <jarDirectory url="file://$PROJECT_DIR$/../../开发API/1.12.2/libraries" recursive="false" />
+    <jarDirectory url="file://$PROJECT_DIR$/../../开发API/1.12.2/libraries" recursive="false" type="SOURCES" />
+  </library>
+</component>

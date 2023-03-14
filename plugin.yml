@@ -1,0 +1,10 @@
+name: ZPokeConnect
+main: io.github.yuazer.zpokeconnect.Main
+version: 0.1
+authors:
+  - YuaZer
+commands:
+  zpokeconnect:
+    aliases:
+      - zpcon
+    description: Z菌网页API
