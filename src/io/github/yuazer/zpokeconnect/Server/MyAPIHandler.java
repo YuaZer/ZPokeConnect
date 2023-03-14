@@ -11,6 +11,7 @@ import org.bukkit.entity.Player;
 
 import java.io.IOException;
 import java.io.OutputStream;
+import java.net.URLEncoder;
 import java.nio.charset.StandardCharsets;
 import java.util.HashMap;
 import java.util.Map;
@@ -24,6 +25,18 @@ public class MyAPIHandler implements HttpHandler {
             String query = exchange.getRequestURI().getQuery();
             Map<String, String> queryParams = parseQueryParams(query);
             String personName = queryParams.get("personName");
+            personName = URLEncoder.encode(personName, "UTF-8");
+            // 判断参数是否符合格式
+            if (!personName.matches("^[a-zA-Z0-9]+$")) {
+                // 参数格式不正确，返回错误信息
+                String errorMessage = "参数格式不正确";
+                byte[] errorBytes = errorMessage.getBytes(StandardCharsets.UTF_8);
+                exchange.sendResponseHeaders(400, errorBytes.length);
+                OutputStream responseBody = exchange.getResponseBody();
+                responseBody.write(errorBytes);
+                responseBody.close();
+                return;
+            }
             String papi = queryParams.get("papiName");
             // 获取参数值
             Player player = Bukkit.getPlayer(personName);
