@@ -41,13 +41,16 @@ public class MyAPIHandler implements HttpHandler {
             // 获取参数值
             Player player = Bukkit.getPlayer(personName);
             JsonObject json = new JsonObject();
-            if (player == null || !player.isOnline()) {
-                json.addProperty("error", "该玩家不在线或不存在!");
-            } else {
-                FileConfiguration conf = Main.getInstance().getConfig();
-                String key = PlaceholderAPI.setPlaceholders(player, "%" + papi + "%");
-                json.addProperty(conf.getString("GlobalSetting.papi"), key);
-            }
+//            if (player == null || !player.isOnline()) {
+//                json.addProperty("error", "该玩家不在线或不存在!");
+//            } else {
+//                FileConfiguration conf = Main.getInstance().getConfig();
+//                String key = PlaceholderAPI.setPlaceholders(player, "%" + papi + "%");
+//                json.addProperty(conf.getString("GlobalSetting.papi"), key);
+//            }
+            FileConfiguration conf = Main.getInstance().getConfig();
+            String key = PlaceholderAPI.setPlaceholders(player, "%" + papi + "%");
+            json.addProperty(conf.getString("GlobalSetting.papi"), key);
             // 设置响应头和响应体
             String jsonResponse = json.toString();
             exchange.getResponseHeaders().set("Content-Type", "application/json;charset=utf-8");

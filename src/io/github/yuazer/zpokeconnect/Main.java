@@ -40,8 +40,6 @@ public class Main extends JavaPlugin {
         if (server != null) {
             server.stop(0);
         }
-//        ServerLoad.getBossGroup().shutdownGracefully();
-//        ServerLoad.getWorkerGroup().shutdownGracefully();
     }
 
     public static void logLoaded(JavaPlugin plugin) {
