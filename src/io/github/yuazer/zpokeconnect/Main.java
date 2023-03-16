@@ -2,10 +2,13 @@ package io.github.yuazer.zpokeconnect;
 
 import com.sun.net.httpserver.HttpServer;
 import io.github.yuazer.zpokeconnect.Commands.MainCommands;
+import io.github.yuazer.zpokeconnect.Listener.DataListener;
+import io.github.yuazer.zpokeconnect.Modules.AsyncUtils;
 import io.github.yuazer.zpokeconnect.Server.MyAPIHandler;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.java.JavaPlugin;
 
+import java.io.File;
 import java.io.IOException;
 import java.net.InetSocketAddress;
 
@@ -21,6 +24,11 @@ public class Main extends JavaPlugin {
         instance = this;
         logLoaded(this);
         saveDefaultConfig();
+        File file = new File("plugins/ZPokeConnect/OfflineSave");
+        if (!file.exists()) {
+            file.mkdir();
+        }
+        AsyncUtils.listen(this, new DataListener());
         try {
             server = HttpServer.create(new InetSocketAddress(Main.getInstance().getConfig().getInt("ServerSetting.port")), 0);
             // 将您的API绑定到路由 /pixelmon 上
@@ -31,8 +39,6 @@ public class Main extends JavaPlugin {
         } catch (IOException e) {
             e.printStackTrace();
         }
-//        ServerLoad serverLoad = new ServerLoad();
-//        serverLoad.serverLoad(Main.getInstance().getConfig().getInt("ServerSetting.port"));
     }
 
     public void onDisable() {

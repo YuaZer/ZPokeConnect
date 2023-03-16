@@ -5,5 +5,13 @@ ServerSetting:
   #端口
   port: 25080
 GlobalSetting:
-  #键名称设置
-  papi: "变量是"
+  #编码设置:
+  CodeType: "UTF-8"
+OfflineSaving:
+  #想离线保存的模块
+  - playerdata
+PAPISetting:
+  #自定义信息展示
+  playerdata:
+    名字: "%cmi_user_name%"
+    等级: "%player_level%"
