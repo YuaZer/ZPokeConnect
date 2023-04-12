@@ -10,8 +10,17 @@ GlobalSetting:
 OfflineSaving:
   #想离线保存的模块
   - playerdata
+#接口-变量模块
 PAPISetting:
   #自定义信息展示
   playerdata:
     名字: "%cmi_user_name%"
     等级: "%player_level%"
+#接口-指令模块
+Commands:
+  healCommand:
+    - "heal %cmi_user_name%"
+    - "give %cmi_user_name% STONE 64"
+OfflineCommand:
+  mailCommand:
+    - "say %player%玩家不在线"

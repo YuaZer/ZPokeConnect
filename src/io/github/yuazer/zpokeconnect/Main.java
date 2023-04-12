@@ -31,6 +31,7 @@ public class Main extends JavaPlugin {
         AsyncUtils.listen(this, new DataListener());
         try {
             server = HttpServer.create(new InetSocketAddress(Main.getInstance().getConfig().getInt("ServerSetting.port")), 0);
+            //server = HttpServer.create(new InetSocketAddress(8848), 0);
             // 将您的API绑定到路由 /pixelmon 上
             server.createContext("/pixelmon", new MyAPIHandler());
             // 启动服务器
