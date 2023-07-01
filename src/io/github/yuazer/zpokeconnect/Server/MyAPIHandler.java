@@ -13,6 +13,7 @@ import org.bukkit.entity.Player;
 import java.io.File;
 import java.io.IOException;
 import java.io.OutputStream;
+import java.net.URLDecoder;
 import java.net.URLEncoder;
 import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
@@ -42,7 +43,7 @@ public class MyAPIHandler implements HttpHandler {
                     String cmdModel = queryParams.get("lixiancmd");
                     if (Main.getInstance().getConfig().getConfigurationSection("OfflineCommand").getKeys(false).contains(cmdModel)) {
                         for (String cmd : Main.getInstance().getConfig().getStringList("OfflineCommand." + cmdModel)) {
-                            Bukkit.dispatchCommand(Bukkit.getConsoleSender(), cmd.replace("%player%", personName));
+                            Bukkit.dispatchCommand(Bukkit.getConsoleSender(), URLDecoder.decode(cmd.replace("%player%", personName), StandardCharsets.UTF_8.name()));
                         }
                         json.addProperty("status", 200);
                     } else {
